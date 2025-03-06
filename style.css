@@ -1,0 +1,182 @@
+:root {
+    --primary: #ff69b4;
+    --secondary: #ff1493;
+    --bg: #1a1a2e;
+    --text: #333;
+    --white: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--bg);
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.stars {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(2px 2px at 20px 30px, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 50px 160px, #fff, rgba(0,0,0,0));
+    background-size: 200px 200px;
+    animation: twinkle 4s ease-in-out infinite;
+}
+
+.moon {
+    position: fixed;
+    top: 50px;
+    right: 50px;
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 50px #fff;
+}
+
+.magical-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 2rem;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 30px rgba(255,105,180,0.3);
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.heart-meter {
+    height: 10px;
+    background: rgba(255,105,180,0.2);
+    border-radius: 5px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+
+.heart-fill {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    transition: width 2s ease;
+}
+
+.title {
+    font-family: 'Dancing Script', cursive;
+    color: var(--secondary);
+    font-size: clamp(2.5rem, 8vw, 3.5rem);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.message-section {
+    text-align: center;
+}
+
+.typing-text {
+    min-height: 3rem;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.time-picker {
+    margin: 2rem 0;
+}
+
+.time-picker select {
+    padding: 0.8rem 2rem;
+    border: 2px solid var(--primary);
+    border-radius: 25px;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    cursor: pointer;
+}
+
+.promise-container {
+    margin: 2rem 0;
+}
+
+.promise-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.promise-item {
+    background: rgba(255,105,180,0.1);
+    padding: 1rem;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.promise-item:hover {
+    transform: translateY(-5px);
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.glow-button, .fade-button {
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.glow-button {
+    background: var(--secondary);
+    color: var(--white);
+    border: none;
+    animation: glow 2s infinite alternate;
+}
+
+.fade-button {
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 0 5px var(--primary); }
+    100% { box-shadow: 0 0 20px var(--primary); }
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 0.4; }
+}
+
+@media (max-width: 600px) {
+    .magical-card {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+
+    .promise-list {
+        grid-template-columns: 1fr;
+    }
+
+    .moon {
+        width: 60px;
+        height: 60px;
+        top: 20px;
+        right: 20px;
+    }
+}
